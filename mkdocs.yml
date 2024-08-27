@@ -1,0 +1,5 @@
+site_name: Introduction to CTFs
+site_url: https://docs.letzpwn.lu
+repo_url: https://github.com/LetzPwn/lcsc-mkdocs
+theme:
+  name: material
