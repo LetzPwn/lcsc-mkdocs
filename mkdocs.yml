@@ -1,5 +1,32 @@
-site_name: Introduction to CTFs
+site_name: LCSC Learning Hub
 site_url: https://docs.letzpwn.lu
 repo_url: https://github.com/LetzPwn/lcsc-mkdocs
 theme:
   name: material
+plugins:
+    - awesome-pages
+    - search
+nav:
+    - Start here: index.md
+    - Cryptography:
+        - cryptography/introduction.md
+    - Web Security:
+        - web-security/introduction.md
+    - Reverse Engineering:
+        - reverse-engineering/introduction.md
+        - reverse-engineering/ressources.md
+    - Digital Forensics:
+        - digital-forensics/introduction.md
+    - Binary Exploitation:
+        - binary-exploitation/introduction.md
+    - Network Analysis:
+        - network-analysis/introduction.md
+    - OSINT:
+        - osint/introduction.md
+    - Hardware Security:
+        - hardware-security/introduction.md
+    
+    
+    
+    
+   
