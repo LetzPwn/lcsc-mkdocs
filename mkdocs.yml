@@ -14,7 +14,9 @@ nav:
         - web-security/introduction.md
     - Reverse Engineering:
         - reverse-engineering/introduction.md
+        - "A first challenge: The Oracle's Whimsy": reverse-engineering/a-first-challenge.md
         - reverse-engineering/ressources.md
+        
     - Digital Forensics:
         - digital-forensics/introduction.md
     - Binary Exploitation:
@@ -25,7 +27,14 @@ nav:
         - osint/introduction.md
     - Hardware Security:
         - hardware-security/introduction.md
-    
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
     
     
     
