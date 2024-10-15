@@ -6,7 +6,7 @@ This challenge is called "Who Wants to be a Millionaire: The Oracle's Whimsy".
 The description says:
 > In a future where reality has become unstable, an enigmatic entity known as The Oracle has grown bored with logic and created a game show where nothing makes sense. In Who Wants to be a Millionaire: The Oracle's Whimsy, contestants face absurd, gibberish questions with answers that defy reason, relying solely on luck to win unimaginable riches. Knowledge is obsolete, and the only way to succeed is by pleasing The Oracle through random guesses. Audiences are captivated by the sheer chaos and unpredictability, as players navigate a world where the only rule is that there are no rules. In this twisted game, wealth is determined not by wisdom, but by chance.
 
-The challenge provides the file `the_oracles_whimsy` which can be found under [this link](TODO).
+The challenge provides the file `the_oracles_whimsy` which can be downloaded [here](/challenge-files/the_oracles_whimsy).
 
 ## First inspections
 
@@ -18,17 +18,18 @@ the_oracles_whimsy: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
 ```
 
 The output of the command tells us a lot of things. Most important are the following
+
 - ELF: The file is an [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) file. ELF stands for Executable and Linkable Format and is a common standard file format for executable files, object code, shared libraries, and core dumps.
 - 64-bit: The program is compiled for 64-bit architecture. This means for example that the adresses have a length of 64-bit.
-- LSB: LSB stands for Least Significant Byte and specifies the order of the bytes the [endianness](https://en.wikipedia.org/wiki/Endianness) used.
+- LSB: LSB stands for Least Significant Byte and specifies the order of the bytes/ the [endianness](https://en.wikipedia.org/wiki/Endianness) used.
 - x86-64: this specifies the instruction set (assembly). Alternatives to x86-64 would be for example "Intel 80386" or "ARM".
-- stripped: this means that symbol, like function names or global variables names have been deleted from the binary as some sort of [obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software)).
+- stripped: this means that symbols, like function names or global variables names have been deleted from the binary as some sort of [obfuscation](https://en.wikipedia.org/wiki/Obfuscation_(software)).
 
 ## Running the binary
 
 A word of caution: We do run this code, because we know that it is a harmless ctf challenge and is not going to do anything malicious to our machine. Do not run programs that you don't trust before inspecting it statically first. If you decide to run a program, always do so in a dedicated virtual machine and not on your host.
 
-First to run the binary, we have to adjust the files permission to make it executable by setting the "executable bit" with the command `chmod`.
+To run the binary, we first have to adjust the files permission to make it executable by setting the "executable bit" with the command `chmod`.
 
 ```bash
 $ chmod +x the_oracles_whimsy
@@ -63,7 +64,7 @@ Your answer:
 ```
 
 In this case it is, as expected, a kind of version like "Who wants to be a millionaire" but with nonsense questions and answers. When running the program a second time, we notice that the question and the answers change.
-To get this "mysterious reward" (the flag most probably), we would have to guess the right answer 15 in a row. Chance of doing that is `0.25 ^ 15 = 0,000000000931323`, so we don't want to play this game the normal game.
+To get this "mysterious reward" (the flag most probably), we would have to guess the right answer 15 times in a row. Chance of doing that is `0.25 ^ 15 = 0,000000000931323`, so we don't want to play this game the normal game.
 
 ## How to cheat the game
  
@@ -165,3 +166,44 @@ undefined8 main(void)
   return 0;
 }
 ```
+
+This is the C Code of the main function that ghidra decompiled from the binary code. Now we can try to make sense of what exactly is happening.
+Decompiled code in ghidra always starts with the declaration of all the local variables in the function.
+The following two lines are:
+```c
+  tVar3 = time((time_t *)0x0);
+  srand((uint)tVar3);
+```
+This sets up a pseudo-random number generator and seeds it with the current time.
+`srand` is an indication that later on, the `rand` function is being used to generate random values.
+
+Next, the rules are being printed to the console via the `puts` function.
+
+Then comes a `while(True)` Loop.
+Here it makes sense to look, how the program can break out of the loop and find the following:
+```c
+local_c = 0;
+while( true ) {
+  if (0xe < local_c) {
+    FUN_00101199();
+    return 0;
+  }
+  ...
+  if (local_31 != local_32) break;
+  ...
+  local_c = local_c + 1;
+}
+```
+We see the condition `if(0xe < local_c)`. `0xe` represents the number 14 in hexadecimal number representation. You can rightclick on the number in ghidra to see the values in decimal, binary, octal and other representations.
+This means, if the variable `local_c`, that was initialised to 0 before the loop, is greater than 14, the function `FUN_00101199` is called and the main function ends with the `return 0;` statement. The variable `local_c` is incremented each iteration. If we think of the rules, we notice that there are 15 questions. So this `local_c` might represent the number of the current question. Let's rename the variable to `question_nbr` by hitting `l` on the keyboard.
+
+As an interesting side-note, the original program could also have looked like this:
+```c
+for (int i = 0; i < 15; i++){
+  ...
+  if (local_31 != local_32) break;
+}
+FUN_00101199();
+return 0;
+```
+This does exactly the same as the while loop from above and results in the same compiled binary code. Some decompilers might decompile it to a while loop, while other decompile it to a for loop. You can use https://dogbolt.org/ to see what different decompilers do. In our example, the Hex-Rays decompiler uses a for-loop, while ghidra and binaryninja both use a while-loop.
