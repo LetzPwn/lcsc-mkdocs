@@ -19,7 +19,8 @@ nav:
         - "A first challenge: The Oracle's Whimsy": reverse-engineering/a-first-challenge.md
         - reverse-engineering/ressources.md
     - Pwn:
-        - pwn/introduction.md     
+        - pwn/introduction.md
+        - pwn/ressources.md     
     #- Digital Forensics:
     #    - digital-forensics/introduction.md
     #- Binary Exploitation:
