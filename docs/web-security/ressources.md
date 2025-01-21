@@ -6,7 +6,7 @@
 
 - [Portswigger Academy](https://portswigger.net/web-security/all-topics): Covers the most important concepts/techniques/vulnerabilites in a beginner-friendly way and has labs to practice. From the developers of Burp Suite (Industry Standard)
 - [Beyond XSS](https://aszx87410.github.io/beyond-xss/en/): Blog, that covers Client-Side vulnerabilities/attacks.
-
+- [PicoCTF Learning Guide](https://picoctf.org/learning_guides/Book-3-Web-Exploitation.pdf)
 
 ## Tools
 ### Essentials

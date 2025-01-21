@@ -6,7 +6,7 @@
 
 - [CRYPTOHACK](https://cryptohack.org/): Has courses and challenges on breaking modern cryptography.
 - [Cryptopals](https://cryptopals.com/): Has a set of challenges that introduce to coding and breaking modern cryptography.
-
+- [PicoCTF Leaning Guide](https://picoctf.org/learning_guides/Book-2-Cryptography.pdf)
 ### Other
 
 - [Crypto museum](https://www.cryptomuseum.com/crypto/index.htm): Has interesting info on the historic use of cryptography
