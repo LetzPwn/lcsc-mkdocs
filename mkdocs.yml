@@ -10,6 +10,7 @@ nav:
     - Start here: index.md
     - Cryptography:
         - cryptography/introduction.md
+        - cryptography/ressources.md
     - Web Security:
         - web-security/introduction.md
         - web-security/ressources.md
@@ -18,16 +19,16 @@ nav:
         - "A first challenge: The Oracle's Whimsy": reverse-engineering/a-first-challenge.md
         - reverse-engineering/ressources.md
         
-    - Digital Forensics:
-        - digital-forensics/introduction.md
+    #- Digital Forensics:
+    #    - digital-forensics/introduction.md
     - Binary Exploitation:
         - binary-exploitation/introduction.md
-    - Network Analysis:
-        - network-analysis/introduction.md
-    - OSINT:
-        - osint/introduction.md
-    - Hardware Security:
-        - hardware-security/introduction.md
+    #- Network Analysis:
+    #    - network-analysis/introduction.md
+    #- OSINT:
+    #    - osint/introduction.md
+    #- Hardware Security:
+    #    - hardware-security/introduction.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
