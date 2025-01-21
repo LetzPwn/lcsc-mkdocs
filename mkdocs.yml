@@ -18,11 +18,12 @@ nav:
         - reverse-engineering/introduction.md
         - "A first challenge: The Oracle's Whimsy": reverse-engineering/a-first-challenge.md
         - reverse-engineering/ressources.md
-        
+    - Pwn:
+        - pwn/introduction.md     
     #- Digital Forensics:
     #    - digital-forensics/introduction.md
-    - Binary Exploitation:
-        - binary-exploitation/introduction.md
+    #- Binary Exploitation:
+    #    - binary-exploitation/introduction.md
     #- Network Analysis:
     #    - network-analysis/introduction.md
     #- OSINT:
