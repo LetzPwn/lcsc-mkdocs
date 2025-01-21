@@ -11,6 +11,10 @@
 
 - [Crypto museum](https://www.cryptomuseum.com/crypto/index.htm): Has interesting info on the historic use of cryptography
 
+### Beginner challenges
+
+- [PicoCTF](https://play.picoctf.org/practice?category=2&page=1)
+
 ## Tools
 ### Essentials
 - Code editor to look at the cryptographic implementation.

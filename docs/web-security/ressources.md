@@ -8,6 +8,10 @@
 - [Beyond XSS](https://aszx87410.github.io/beyond-xss/en/): Blog, that covers Client-Side vulnerabilities/attacks.
 - [PicoCTF Learning Guide](https://picoctf.org/learning_guides/Book-3-Web-Exploitation.pdf)
 
+### Beginner challenges
+
+- [PicoCTF](https://play.picoctf.org/practice?category=1&page=1)
+
 ## Tools
 ### Essentials
 - A browser
