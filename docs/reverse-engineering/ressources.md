@@ -5,7 +5,7 @@
 ### Learning platforms  
 
 - [pwn.college](https://pwn.college/program-security/reverse-engineering/): Great and free Cybersecurity courses in general and they have a reverse engineering dojo
-- [hextree.io](https://app.hextree.io/): Great for learning about Android Security, also has some general Reverse Engineering content)
+- [hextree.io](https://app.hextree.io/): Great for learning about Android Security, also has some general Reverse Engineering content
 - [Azeria Labs](https://azeria-labs.com/writing-arm-assembly-part-1/): Great for learning ARM assembly
 
 ### Other
@@ -24,7 +24,7 @@
 - A debugger for dynamic analysis
     - gdb (free and pre-installed on kali)
     - [gef](https://github.com/hugsy/gef) (enhanced gdb)
-- [python](https://www.python.org/)
+- [python](https://www.python.org/) & [pwntools](https://docs.pwntools.com/en/stable/)
 - Note-taking app
 
 ### Situational

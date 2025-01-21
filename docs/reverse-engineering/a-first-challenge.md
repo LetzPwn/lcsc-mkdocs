@@ -6,7 +6,7 @@ This challenge is called "Who Wants to be a Millionaire: The Oracle's Whimsy".
 The description says:
 > In a future where reality has become unstable, an enigmatic entity known as The Oracle has grown bored with logic and created a game show where nothing makes sense. In Who Wants to be a Millionaire: The Oracle's Whimsy, contestants face absurd, gibberish questions with answers that defy reason, relying solely on luck to win unimaginable riches. Knowledge is obsolete, and the only way to succeed is by pleasing The Oracle through random guesses. Audiences are captivated by the sheer chaos and unpredictability, as players navigate a world where the only rule is that there are no rules. In this twisted game, wealth is determined not by wisdom, but by chance.
 
-The challenge provides the file `the_oracles_whimsy` which can be downloaded [here](/challenge-files/the_oracles_whimsy).
+**DOWNLOAD**: The challenge provides the file `the_oracles_whimsy` which can be downloaded [here](/challenge-files/the_oracles_whimsy).
 
 ## First inspections
 
@@ -14,7 +14,7 @@ First thing we do is open the terminal and run the command `file` on `the_oracle
 
 ```bash
 $ file the_oracles_whimsy
-the_oracles_whimsy: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=d294f6db011abd6cd31fc185c5566d7dd6f1c840, for GNU/Linux 3.2.0, not stripped
+the_oracles_whimsy: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=cf4e3000306a57f52e6e3ba993722d58fb248121, for GNU/Linux 3.2.0, stripped
 ```
 
 The output of the command tells us a lot of things. Most important are the following
@@ -206,4 +206,55 @@ for (int i = 0; i < 15; i++){
 FUN_00101199();
 return 0;
 ```
-This does exactly the same as the while loop from above and results in the same compiled binary code. Some decompilers might decompile it to a while loop, while other decompile it to a for loop. You can use https://dogbolt.org/ to see what different decompilers do. In our example, the Hex-Rays decompiler uses a for-loop, while ghidra and binaryninja both use a while-loop.
+This does exactly the same as the while loop from above and results in the same compiled binary code. Some decompilers might decompile it to a while loop, while other decompile it to a for loop. You can use [dogbolt.org](https://dogbolt.org/) to see what different decompilers do. In our example, the Hex-Rays decompiler shows a for-loop, while ghidra and binaryninja both show a while-loop.
+
+Now, let's look into `FUN_00101199`, which is most probably the `win` or `getflag` function, whatever you would like to call it.
+
+```c
+void FUN_00101199(void)
+
+{
+  undefined8 local_118;
+  undefined8 local_110;
+  undefined8 local_108;
+  undefined8 local_100;
+  undefined8 local_f8;
+  undefined8 local_f0;
+  undefined8 local_e8;
+  undefined8 local_e0;
+  undefined local_d8 [204];
+  int local_c;
+  
+  local_e8 = 0x7766554433221100;
+  local_e0 = 0xffeeddccbbaa9988;
+  local_118 = 0xac1d60871fc5bd37;
+  local_110 = 0xa25f61a4f747edfd;
+  local_108 = 0x591d872197736fb7;
+  local_100 = 0x6c3550e8e7a13305;
+  local_f8 = 0x2035325aab697d40;
+  local_f0 = 0x68dd201dde4edda4;
+  FUN_00101832(local_d8,&local_e8);
+  for (local_c = 0; local_c < 3; local_c = local_c + 1) {
+    FUN_0010270c(local_d8,(long)&local_118 + (long)(local_c << 4));
+  }
+  printf("Congrats, you win! Here is your mystery rewards: ");
+  puts((char *)&local_118);
+  return;
+}
+```
+
+We see: At the bottom, there is a message printed "Congrats, you win! Here is your mystery rewards:" and the value at pointer `local_118`, that is the flag. We also see that this value is "calculated" beforehand using other functions `FUN_00101832` and `FUN_0010270c`. At this point, we kinda don't want to spend more time looking at this code statically and trying to make sense of more stuff.
+
+In the outgoing calls we even see, that a lot more nested functions are being called.
+![image](/data/rev_outgoing_references.png)
+
+So let's jump into our Dynamic Analysis!
+
+## Dynamic analysis with gdb+gef
+
+Make sure to have gdb and gef (GDB enhanced features) installed.
+
+```
+gdb the_oracles_whimsy
+```
+

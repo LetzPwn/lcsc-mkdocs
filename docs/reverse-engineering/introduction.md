@@ -20,4 +20,8 @@ Other types of challenges include Android Apps (apk format) that are written in 
 - reverse engineering a program acting as a virtual machine with its own instruction set
 - reverse engineering an android app
 - reverse engineering a flag-checker
-- 
+- bypassing obfuscation and anti-reversing measures
+
+## If you have questions...
+
+...feel free to ask people on Discord in the LCSC Server or me directly (#mathisfoxius)
