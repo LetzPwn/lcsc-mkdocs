@@ -12,6 +12,7 @@ nav:
         - cryptography/introduction.md
     - Web Security:
         - web-security/introduction.md
+        - web-security/ressources.md
     - Reverse Engineering:
         - reverse-engineering/introduction.md
         - "A first challenge: The Oracle's Whimsy": reverse-engineering/a-first-challenge.md
@@ -35,7 +36,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-    
     
     
    
