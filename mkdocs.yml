@@ -3,11 +3,44 @@ site_url: https://docs.letzpwn.lu
 repo_url: https://github.com/LetzPwn/lcsc-mkdocs
 theme:
   name: material
+  font:
+    text: Roboto Mono
+    code: Roboto Mono
+  palette:
+    - scheme: slate
+      primary: black
+      accent: green
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+    - scheme: default
+      primary: black
+      accent: green
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
 plugins:
     - awesome-pages
     - search
+    - tags
+    - redirects:
+        redirect_maps: {}
+    - git-revision-date-localized:
+        enable_creation_date: true
+    - glightbox
+    - minify:
+        minify_html: true
+    - htmlproofer:
+        validate_external_urls: false
 nav:
     - Start here: index.md
+    - Tags: tags.md
     - Cryptography:
         - cryptography/introduction.md
         - cryptography/ressources.md

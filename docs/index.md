@@ -8,7 +8,7 @@ In order to get the flag, the player usually has to break or hack into systems a
 
 Common examples of CTF challenges are
 
-- getting into admin-panels of websites you are not supposed to access (cf. [WEB SECURITY](web/introduction.md))
+- getting into admin-panels of websites you are not supposed to access (cf. [WEB SECURITY](web-security/introduction.md))
 - decrypting secret messages you are not supposed to be able to read. (cf. [CRYPTOGRAPHY](cryptography/introduction.md))
 - corrupting programs to do things they are not intended to do. (cf. [BINARY EXPLOITATION](binary-exploitation/introduction.md))
 
