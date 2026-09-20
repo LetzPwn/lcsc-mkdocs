@@ -8,19 +8,19 @@ In order to get the flag, the player usually has to break or hack into systems a
 
 Common examples of CTF challenges are
 
-- getting into admin-panels of websites you are not supposed to access (cf. [WEB SECURITY](web-security/introduction.md))
-- decrypting secret messages you are not supposed to be able to read. (cf. [CRYPTOGRAPHY](cryptography/introduction.md))
-- corrupting programs to do things they are not intended to do. (cf. [BINARY EXPLOITATION](binary-exploitation/introduction.md))
+- getting into admin-panels of websites you are not supposed to access (cf. [WEB SECURITY](web-security/index.md))
+- decrypting secret messages you are not supposed to be able to read. (cf. [CRYPTOGRAPHY](cryptography/index.md))
+- corrupting programs to do things they are not intended to do. (cf. [BINARY EXPLOITATION](binary-exploitation/index.md))
 
 CTFs can also be about finding out what exactly a program is doing or what has happened on a specific system.
 This includes:
 
-- Examining and reverse engineering binary programs or mobile applications. (cf. [REVERSE ENGINEERING](reverse-engineering/introduction.md))
-- Solving a digital forensics case. (cf. [DIGITAL FORENSICS](digital-forensics/introduction.md))
-- Analyzing network traffic to discover vulnerabilities in protocols (cf. [NETWORK ANALYSIS](network-analysis/introduction.md))
+- Examining and reverse engineering binary programs or mobile applications. (cf. [REVERSE ENGINEERING](reverse-engineering/index.md))
+- Solving a digital forensics case. (cf. [DIGITAL FORENSICS](digital-forensics/index.md))
+- Analyzing network traffic to discover vulnerabilities in protocols (cf. [NETWORK ANALYSIS](network-analysis/index.md))
 
 Less common, but still present, are challenges like
 
-- Getting secret information from a microcontroller using side-channel analysis (cf. [HARDWARE SECURITY](hardware-security/introduction.md))
-- gathering information about a fictional target using publicly available sources like social media (cf. [OSINT](osint/introduction.md))
+- Getting secret information from a microcontroller using side-channel analysis (cf. [HARDWARE SECURITY](hardware-security/index.md))
+- gathering information about a fictional target using publicly available sources like social media (cf. [OSINT](osint/index.md))
 

@@ -1,3 +1,7 @@
+---
+title: Pwn
+---
+
 # Introduction
 
 The term to pwn \[/poʊn/\] originally comes from the gaming community and means the verb to own.

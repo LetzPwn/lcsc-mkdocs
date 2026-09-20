@@ -33,7 +33,16 @@ plugins:
     - search
     - tags
     - redirects:
-        redirect_maps: {}
+        redirect_maps:
+            cryptography/introduction.md: cryptography/index.md
+            web-security/introduction.md: web-security/index.md
+            reverse-engineering/introduction.md: reverse-engineering/index.md
+            pwn/introduction.md: pwn/index.md
+            digital-forensics/introduction.md: digital-forensics/index.md
+            binary-exploitation/introduction.md: binary-exploitation/index.md
+            network-analysis/introduction.md: network-analysis/index.md
+            osint/introduction.md: osint/index.md
+            hardware-security/introduction.md: hardware-security/index.md
     - git-revision-date-localized:
         enable_creation_date: true
     - git-committers:
@@ -51,28 +60,28 @@ nav:
     - Start here: index.md
     - Tags: tags.md
     - Cryptography:
-        - cryptography/introduction.md
+        - cryptography/index.md
         - cryptography/ressources.md
     - Web Security:
-        - web-security/introduction.md
+        - web-security/index.md
         - web-security/ressources.md
     - Reverse Engineering:
-        - reverse-engineering/introduction.md
+        - reverse-engineering/index.md
         - "A first challenge: The Oracle's Whimsy": reverse-engineering/a-first-challenge.md
         - reverse-engineering/ressources.md
     - Pwn:
-        - pwn/introduction.md
-        - pwn/ressources.md     
+        - pwn/index.md
+        - pwn/ressources.md
     #- Digital Forensics:
-    #    - digital-forensics/introduction.md
+    #    - digital-forensics/index.md
     #- Binary Exploitation:
-    #    - binary-exploitation/introduction.md
+    #    - binary-exploitation/index.md
     #- Network Analysis:
-    #    - network-analysis/introduction.md
+    #    - network-analysis/index.md
     #- OSINT:
-    #    - osint/introduction.md
+    #    - osint/index.md
     #- Hardware Security:
-    #    - hardware-security/introduction.md
+    #    - hardware-security/index.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
