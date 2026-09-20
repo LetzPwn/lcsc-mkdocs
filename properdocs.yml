@@ -3,6 +3,8 @@ site_url: https://docs.letzpwn.lu
 repo_url: https://github.com/LetzPwn/lcsc-mkdocs
 theme:
   name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
   font:
     text: Roboto Mono
     code: Roboto Mono
