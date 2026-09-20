@@ -29,17 +29,24 @@ theme:
     - search.highlight
 plugins:
     - awesome-pages
+    - macros
     - search
     - tags
     - redirects:
         redirect_maps: {}
     - git-revision-date-localized:
         enable_creation_date: true
+    - git-committers:
+        repository: LetzPwn/lcsc-mkdocs
+        branch: main
+        token: !ENV [GITHUB_TOKEN, ""]
     - glightbox
+    - social
     - minify:
         minify_html: true
     - htmlproofer:
         validate_external_urls: false
+    - privacy
 nav:
     - Start here: index.md
     - Tags: tags.md
@@ -73,7 +80,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
     
     
    

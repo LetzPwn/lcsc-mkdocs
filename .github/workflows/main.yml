@@ -29,3 +29,5 @@ jobs:
             mkdocs-material-
       - run: pip install -r requirements.txt
       - run: properdocs gh-deploy --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
